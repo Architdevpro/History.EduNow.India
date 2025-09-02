@@ -3,188 +3,364 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Discover India — Indian History Portal</title>
   <meta name="description" content="A lightweight educational website about Indian History: timelines, biographies, maps, quizzes and resources." />
   <style>
-    :root {
-      --accent: #c0392b;
-      --muted: #555;
-      --bg: #f7f7f8;
-      --card: #fff;
+    :root{
+      --accent:#c0392b;--muted:#555;--bg:#fbfbfc;--card:#ffffff;--glass:rgba(255,255,255,0.6);
+      --radius:14px;--gap:14px;--shadow:0 10px 30px rgba(16,24,40,0.08);
+      --max-width:1100px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.5;
-      margin: 0;
-      background: var(--bg);
-      color: #222;
-    }
-    header {
-      background: linear-gradient(90deg,#fff 0%,#ffecea 100%);
-      padding: 18px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.05);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .container { max-width: 1000px; margin: 0 auto; padding: 18px; }
-    .brand { font-weight: 700; color: var(--accent); font-size: 1.2rem; }
-    nav { display: flex; gap: 10px; align-items: center; }
-    nav a { color: var(--muted); text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.3s; }
-    nav a:hover { background: #fff; }.hero { padding: 40px 20px; background: linear-gradient(180deg, rgba(192,57,43,0.06), transparent); }
-.grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-@media(min-width:860px) { .grid { grid-template-columns: 1fr 320px; } }
-.card { background: var(--card); padding: 18px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.04); }
-.timeline { display: flex; flex-direction: column; gap: 10px; }
-.event { padding: 12px; border-left: 4px solid var(--accent); background: #fff; border-radius: 8px; }
-h1 { margin: 0 0 8px 0; font-size: 1.8rem; }
-h2 { margin: 12px 0; font-size: 1.4rem; }
-h3 { margin-bottom: 8px; font-size: 1.2rem; }
-.small { color: var(--muted); font-size: 0.95rem; }
-.people { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
-@media(min-width:560px) { .people { grid-template-columns: repeat(3,1fr); } }
-.person { padding: 12px; border-radius: 10px; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.05); }
-footer { padding: 18px; text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 20px; }
-.btn { display: inline-block; padding: 8px 12px; border-radius: 8px; background: var(--accent); color: #fff; text-decoration: none; cursor: pointer; border: none; }
-.quiz-row { display: flex; flex-direction: column; gap: 12px; }
-input[type=radio] { margin-right: 8px; }
-.resources ul { margin: 0; padding-left: 18px; }
-.search { display: flex; gap: 8px; margin-top: 8px; }
-.search input { flex: 1; padding: 8px; border-radius: 8px; border: 1px solid #ddd; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:linear-gradient(180deg,#fbfcff 0%,#f7f7fa 100%);color:#0f1724;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+      -webkit-text-size-adjust:100%;
+    }/* Layout */
+.wrap{max-width:var(--max-width);margin:0 auto;padding:16px}
+header{position:sticky;top:0;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,255,255,0.6));border-bottom:1px solid rgba(0,0,0,0.04);z-index:40}
+.header-inner{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px 8px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff8a80);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.brand h1{font-size:1rem;margin:0}
+nav{display:flex;gap:8px;align-items:center}
+nav a{font-size:0.92rem;color:var(--muted);text-decoration:none;padding:8px;border-radius:10px}
 
-@keyframes pulse {
-  0% { background-color: #fff; }
-  50% { background-color: #ffecea; }
-  100% { background-color: #fff; }
+/* Hero */
+.hero{margin-top:12px;background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(255,255,255,0.9));padding:18px;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
+.hero-left{flex:1}
+.hero h2{margin:0 0 6px 0;font-size:1.3rem}
+.hero p{margin:0;color:var(--muted)}
+.cta{margin-top:12px}
+
+/* Responsive grid */
+.grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+@media(min-width:880px){.grid{grid-template-columns:2fr 380px}}
+.card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 8px 24px rgba(2,6,23,0.06)}
+
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:10px}
+.timeline-item{display:flex;flex-direction:row;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.03);cursor:pointer}
+.ti-bullet{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#fff,min(#fff,#fff));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);flex-shrink:0}
+.ti-body{flex:1}
+.ti-title{font-weight:700;font-size:1rem}
+.ti-sub{font-size:0.9rem;color:var(--muted)}
+
+/* Figures grid */
+.people{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:560px){.people{grid-template-columns:repeat(3,1fr)}}
+.person{padding:10px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff);border:1px solid rgba(0,0,0,0.03)}
+
+/* Quiz */
+.quiz-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.btn{background:var(--accent);color:#fff;border:none;padding:10px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+.muted{color:var(--muted)}
+.q-card{padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);background:linear-gradient(180deg,#fff,#fff)}
+.options{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.opt{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);cursor:pointer}
+.opt.correct{background:linear-gradient(90deg,rgba(16,185,129,0.12),rgba(16,185,129,0.06));border-color:rgba(16,185,129,0.3)}
+.opt.wrong{background:linear-gradient(90deg,rgba(239,68,68,0.08),rgba(239,68,68,0.04));border-color:rgba(239,68,68,0.25)}
+.opt.disabled{opacity:0.7;pointer-events:none}
+.feedback{font-weight:700;margin-top:8px}
+
+/* Search */
+.search-row{display:flex;gap:8px;align-items:center;margin-top:8px}
+.search-row input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)}
+.highlight{background:linear-gradient(90deg,#fff3cd,#fff9e6);padding:2px 6px;border-radius:6px}
+
+/* bottom nav for mobile */
+.bottom-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:12px;background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);display:flex;gap:8px;padding:8px;border-radius:999px;box-shadow:0 8px 30px rgba(15,23,42,0.08);z-index:50}
+.bn-item{padding:8px 12px;border-radius:999px;font-weight:600}
+
+/* small screens */
+@media(max-width:480px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .brand h1{font-size:0.92rem}
+  .ti-bullet{width:48px;height:48px}
+  .wrap{padding:12px}
+  .card{padding:10px}
 }
+
+/* accessibility */
+:focus{outline:3px solid rgba(192,57,43,0.18);outline-offset:2px}
 
   </style>
 </head>
 <body>
   <header>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
-      <div class="brand">Discover India</div>
-      <nav>
-        <a href="#home">Home</a>
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="logo">DI</div>
+        <div>
+          <h1>Discover India</h1>
+          <div style="font-size:0.8rem;color:var(--muted)">Indian History — timelines, quizzes, and quick revisions</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
         <a href="#timeline">Timeline</a>
         <a href="#figures">Figures</a>
         <a href="#quiz">Quiz</a>
         <a href="#resources">Resources</a>
       </nav>
     </div>
-  </header>  <main class="container">
-    <section id="home" class="hero card">
-      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
-        <div style="flex:1;min-width:220px">
-          <h1>Indian History — key eras & stories</h1>
-          <p class="small">Explore concise timelines, biographies of influential figures, primary-source links and quick quizzes for learning and revision.</p>
-          <p style="margin-top:12px"><a class="btn" href="#timeline">Start the timeline</a></p>
-        </div>
-        <div style="width:260px;min-width:180px">
-          <div class="card small" style="background:#fff">
-            <strong>Tip:</strong>
-            <p class="small">Use the quiz section to test yourself after reading each era. This site is licensed for classroom and personal study.</p>
-          </div>
+  </header>  <main class="wrap" id="main">
+    <section class="hero card" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h2 id="hero-title">Indian History — key eras & stories</h2>
+        <p class="muted">Engaging timelines, hundreds of randomized quiz questions, instant feedback, and mobile-first design for fast revision.</p>
+        <div class="cta" style="margin-top:12px">
+          <button class="btn" onclick="document.getElementById('timeline').scrollIntoView({behavior:'smooth'})">Explore Timeline</button>
+          <button class="btn" style="background:#334155;margin-left:8px" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Take a Quiz</button>
         </div>
       </div>
-    </section><div class="grid" style="margin-top:18px">
-  <section id="timeline" class="card">
-    <h2>Timeline — quick glance</h2>
-    <div class="timeline">
-      <div class="event"><strong>c. 3300–1300 BCE — Indus Valley Civilization</strong><div class="small">Urban planning, Harappa & Mohenjo‑daro</div></div>
-      <div class="event"><strong>c. 1500–500 BCE — Vedic Age</strong><div class="small">Formation of sacred texts, early kingdoms</div></div>
-      <div class="event"><strong>c. 322–185 BCE — Maurya Empire</strong><div class="small">Chandragupta, Ashoka and statecraft</div></div>
-      <div class="event"><strong>c. 320–550 CE — Gupta Period</strong><div class="small">Classical age: art, literature and sciences</div></div>
-      <div class="event"><strong>c. 1206–1526 — Delhi Sultanates</strong><div class="small">New political patterns and cultural exchange</div></div>
-      <div class="event"><strong>c. 1526–1857 — Mughal Empire</strong><div class="small">Architecture, administration and synthesis</div></div>
-      <div class="event"><strong>c. 1757–1947 — Colonial Rule & National Movement</strong><div class="small">East India Company to British Raj; independence movement</div></div>
+      <div style="width:160px;display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center">
+          <div style="font-size:28px;font-weight:800;color:var(--accent)">📚</div>
+          <div class="muted" style="font-size:12px;margin-top:6px">Learn fast • Revise smart</div>
+        </div>
+      </div>
+    </section><div class="grid">
+  <section id="timeline" class="card" aria-labelledby="timeline-heading">
+    <h3 id="timeline-heading">Timeline — quick glance</h3>
+    <div style="margin-top:8px" class="search-row">
+      <input id="timeline-search" placeholder="Search timeline (e.g. Mughal, Ashoka, 1857)" aria-label="Search timeline" />
+      <button class="btn" onclick="doTimelineSearch()">Search</button>
+    </div>
+    <div style="margin-top:12px" class="timeline" id="timeline-list" role="list">
+      <!-- timeline items injected by JS -->
     </div>
   </section>
 
-  <aside id="figures" class="card">
-    <h3>Notable figures</h3>
-    <div class="people">
-      <div class="person">
-        <strong>Ashoka</strong>
-        <div class="small">Emperor who promoted dhamma after Kalinga war.</div>
-      </div>
-      <div class="person">
-        <strong>Akbar</strong>
-        <div class="small">Mughal ruler known for administrative reforms and cultural patronage.</div>
-      </div>
-      <div class="person">
-        <strong>Mahatma Gandhi</strong>
-        <div class="small">Leader of non‑violent civil disobedience against British rule.</div>
-      </div>
-      <div class="person">
-        <strong>Rani Lakshmibai</strong>
-        <div class="small">Figure of 1857 resistance; symbol of courage.</div>
-      </div>
-      <div class="person">
-        <strong>C. V. Raman</strong>
-        <div class="small">Scientist emblematic of modern Indian achievements (included as a linkable biography example).</div>
-      </div>
-      <div class="person">
-        <strong>B. R. Ambedkar</strong>
-        <div class="small">Architect of the constitution and social reformer.</div>
-      </div>
+  <aside id="figures" class="card" aria-labelledby="figures-heading">
+    <h3 id="figures-heading">Notable figures</h3>
+    <div style="margin-top:8px" class="people" id="figures-list">
+      <!-- figures injected by JS -->
     </div>
   </aside>
+
 </div>
 
-<section class="card" style="margin-top:18px">
-  <h2 id="quiz">Quick quiz — test yourself</h2>
-  <div id="quiz-area" class="quiz-row">
-    <div class="card">
-      <div><strong>Q1:</strong> Which city belongs to the Indus Valley Civilization?</div>
-      <label><input type="radio" name="q1" value="a"> Pataliputra</label>
-      <label><input type="radio" name="q1" value="b"> Mohenjo‑daro</label>
-      <label><input type="radio" name="q1" value="c"> Delhi</label>
-    </div>
+<section id="quiz" class="card" style="margin-top:12px" aria-labelledby="quiz-heading">
+  <h3 id="quiz-heading">Interactive Quiz</h3>
+  <div class="quiz-toolbar">
+    <label class="muted">Questions per attempt:</label>
+    <select id="quiz-count">
+      <option value="5">5</option>
+      <option value="10" selected>10</option>
+      <option value="20">20</option>
+    </select>
+    <button class="btn" id="start-quiz">Start New Quiz</button>
+    <div style="margin-left:auto" class="muted" id="quiz-stats">Questions loaded: <span id="bank-size">0</span></div>
+  </div>
 
-    <div class="card">
-      <div><strong>Q2:</strong> Who issued the Edicts promoting dhamma?</div>
-      <label><input type="radio" name="q2" value="a"> Ashoka</label>
-      <label><input type="radio" name="q2" value="b"> Akbar</label>
-      <label><input type="radio" name="q2" value="c"> Shah Jahan</label>
-    </div>
-
-    <p><button class="btn" id="check">Check answers</button> <span id="score" style="margin-left:12px"></span></p>
+  <div id="quiz-area">
+    <div class="muted">Click "Start New Quiz" to begin. Questions are randomized — everyone gets a different set each attempt.</div>
   </div>
 </section>
 
-<section id="resources" class="card" style="margin-top:18px">
-  <h2>Resources & further reading</h2>
-  <div class="resources small">
-    <ul>
-      <li>NCERT textbook chapters (classical concise summaries)</li>
-      <li>Selected primary sources and inscriptions (translations)</li>
-      <li>Suggested YouTube lecture playlists for classroom revision</li>
-    </ul>
-    <p class="small">Teachers: use the search box below to quickly find relevant chapters on this site (simple client‑side search).</p>
-    <div class="search">
-      <input id="searchbox" placeholder="Search topics on this page (e.g. Mughal)" />
-      <button class="btn" id="do-search">Find</button>
-    </div>
-  </div>
+<section id="resources" class="card" style="margin-top:12px">
+  <h3>Resources & further reading</h3>
+  <div style="margin-top:8px" class="muted">This page uses client-side generated era pages. You can open dedicated pages for each era from the timeline; they open in a new tab.</div>
+  <ul style="margin-top:10px">
+    <li>NCERT textbook chapters (classical concise summaries)</li>
+    <li>Selected primary sources and inscriptions (translations)</li>
+    <li>Suggested video playlists for classroom revision</li>
+  </ul>
 </section>
 
-  </main>  <footer>
-    <div class="container small">© Discover India — Educational site. Built for classroom & personal study. 2025, V1.0.0</div>
-  </footer>  <script>
-    document.getElementById('check').addEventListener('click',function(){
-      let score=0; if(document.querySelector('input[name=q1]:checked')?.value==='b') score++;
-      if(document.querySelector('input[name=q2]:checked')?.value==='a') score++;
-      document.getElementById('score').textContent = 'Score: ' + score + ' / 2';
+  </main>  <div class="bottom-nav" role="navigation" aria-label="Quick actions">
+    <button class="bn-item" onclick="document.getElementById('timeline').scrollIntoView({behavior:'smooth'})">Timeline</button>
+    <button class="bn-item" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Quiz</button>
+    <button class="bn-item" onclick="document.getElementById('resources').scrollIntoView({behavior:'smooth'})">Resources</button>
+  </div>  <script>
+    /*******************************
+     * Data (eras & figures)
+     *******************************/
+    const ERAS = [
+      {id:'indus',title:'Indus Valley Civilization',period:'c. 3300–1300 BCE',desc:'Urban planning, Harappa & Mohenjo-daro'},
+      {id:'vedic',title:'Vedic Age',period:'c. 1500–500 BCE',desc:'Formation of sacred texts and early kingdoms'},
+      {id:'mahajanapada',title:'Mahajanapadas & Rise of Kingdoms',period:'c. 600–300 BCE',desc:'City states and early empires'},
+      {id:'maurya',title:'Maurya Empire',period:'c. 322–185 BCE',desc:'Chandragupta, Ashoka and statecraft'},
+      {id:'gupta',title:'Gupta Period',period:'c. 320–550 CE',desc:'Classical age: art, literature and sciences'},
+      {id:'sultanate',title:'Delhi Sultanates',period:'c. 1206–1526',desc:'New political patterns and cultural exchange'},
+      {id:'mughal',title:'Mughal Empire',period:'c. 1526–1857',desc:'Architecture, administration and synthesis'},
+      {id:'colonial',title:'Colonial Rule & National Movement',period:'c. 1757–1947',desc:'Company rule to independence movement'},
+      {id:'modern',title:'Modern India',period:'1947–present',desc:'Post-independence nation-building'}
+    ];
+
+    const FIGURES = [
+      {name:'Ashoka',era:'Maurya',note:'Emperor who promoted dhamma after the Kalinga war.'},
+      {name:'Akbar',era:'Mughal',note:'Known for administrative reforms and cultural patronage.'},
+      {name:'Mahatma Gandhi',era:'Modern',note:'Leader of non-violent independence movement.'},
+      {name:'Rani Lakshmibai',era:'Colonial',note:'Leader in the 1857 uprising.'},
+      {name:'C. V. Raman',era:'Modern',note:'Scientist and Nobel laureate.'},
+      {name:'B. R. Ambedkar',era:'Modern',note:'Architect of the Indian Constitution.'}
+    ];
+
+    /*******************************
+     * Programmatically generate a large question bank
+     * so "hundreds" of questions exist without listing them manually.
+     *******************************/
+    const eraNames = ERAS.map(e=>e.title);
+    const figureNames = FIGURES.map(f=>f.name);
+    const cities = ['Mohenjo-daro','Harappa','Pataliputra','Taxila','Ujjain','Delhi','Calicut','Agra','Varanasi','Madurai'];
+
+    // Simple templates
+    const templates = [
+      q=>({q:`Which city is associated with the ${q.era}?`,opts:shuffle([q.city,randomFrom(cities),randomFrom(cities)]),a:q.city}),
+      q=>({q:`In which period did the ${q.era} take place?`,opts:shuffle([q.period,randomFrom(ERAS).period,randomFrom(ERAS).period]),a:q.period}),
+      q=>({q:`Who is a notable figure from the ${q.era}?`,opts:shuffle([q.figure,randomFrom(figureNames),randomFrom(figureNames)]),a:q.figure}),
+      q=>({q:`Which of these is true about the ${q.era}?`,opts:shuffle([q.desc,randomFrom(ERAS).desc,randomFrom(ERAS).desc]),a:q.desc}),
+    ];
+
+    function randomFrom(arr){return arr[Math.floor(Math.random()*arr.length)]}
+    function shuffle(arr){return arr.slice().sort(()=>Math.random()-0.5)}
+
+    // Build bank
+    let questionBank = [];
+    ERAS.forEach((era,i)=>{
+      const city = cities[i % cities.length];
+      const relatedFigures = FIGURES.filter(f=>f.era.toLowerCase().includes(era.title.split(' ')[0].toLowerCase()));
+      const figure = relatedFigures.length? relatedFigures[0].name : randomFrom(figureNames);
+      const base = {era:era.title,period:era.period,desc:era.desc,city,figure};
+      // generate multiple from templates
+      for(let t=0;t<30;t++){
+        const temp = templates[t % templates.length];
+        questionBank.push(temp(base));
+      }
     });
 
-    document.getElementById('do-search').addEventListener('click',function(){
-      const q = document.getElementById('searchbox').value.trim().toLowerCase();
-      if(!q){alert('Type a search term (e.g. "Ashoka", "Mughal")');return}
-      const matches = Array.from(document.querySelectorAll('main')).filter(n=>n.textContent.toLowerCase().includes(q));
-      if(matches.length) { matches[0].scrollIntoView({behavior:'smooth'}); matches[0].style.animation='pulse 1s'; setTimeout(()=>matches[0].style.animation='',1200)} else alert('No matching text found on page.');
+    // add some handcrafted classic MCQs
+    const handcrafted = [
+      {q:'Which ancient script is associated with the Indus Valley?',opts:['Harappan script','Brahmi','Devanagari'],a:'Harappan script'},
+      {q:'Who wrote the Arthashastra?',opts:['Chanakya','Kalidasa','Kautilya'],a:'Chanakya'},
+      {q:'The battle of Plassey was fought in?',opts:['1757','1857','1947'],a:'1757'},
+      {q:'Who was the first President of India?',opts:['Rajendra Prasad','Dr. S. Radhakrishnan','Zakir Hussain'],a:'Rajendra Prasad'},
+      {q:'Which monument was built by Shah Jahan?',opts:['Taj Mahal','Qutub Minar','Gateway of India'],a:'Taj Mahal'}
+    ];
+    questionBank = questionBank.concat(handcrafted);
+
+    // dedupe and finalize
+    questionBank = Array.from(new Map(questionBank.map(q=>[q.q+q.a, q]))).map(k=>k[1]);
+
+    // expose bank size
+    document.getElementById('bank-size').textContent = questionBank.length;
+
+    /*******************************
+     * Render timeline and figures
+     *******************************/
+    const timelineList = document.getElementById('timeline-list');
+    ERAS.forEach(era=>{
+      const item = document.createElement('div');
+      item.className = 'timeline-item';
+      item.setAttribute('role','listitem');
+      item.innerHTML = `
+        <div class="ti-bullet">${era.title.split(' ')[0].slice(0,2).toUpperCase()}</div>
+        <div class="ti-body">
+          <div class="ti-title">${era.title}</div>
+          <div class="ti-sub">${era.period} — ${era.desc}</div>
+        </div>
+      `;
+      item.addEventListener('click',()=>openEraPage(era));
+      timelineList.appendChild(item);
     });
-  </script></body>
-</html>
+
+    const figuresList = document.getElementById('figures-list');
+    FIGURES.forEach(f=>{
+      const el = document.createElement('div'); el.className='person';
+      el.innerHTML = `<strong>${f.name}</strong><div class="muted" style="font-size:0.9rem">${f.note}</div>`;
+      figuresList.appendChild(el);
+    });
+
+    /*******************************
+     * Era page generator (opens in new tab as data URL)
+     *******************************/
+    function openEraPage(era){
+      const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(era.title)}</title><style>body{font-family:Arial,Helvetica,sans-serif;padding:18px;background:#fbfbfd;color:#0b1220}header{display:flex;gap:12px;align-items:center}h1{margin-top:12px}section{margin-top:12px;padding:12px;background:#fff;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}</style></head><body><header><a href="javascript:window.close()" style="padding:8px 12px;border-radius:8px;background:#eee;text-decoration:none;color:#111">Close</a><h1>${escapeHtml(era.title)}</h1></header><section><strong>Period:</strong> ${escapeHtml(era.period)}<p style="margin-top:8px">${escapeHtml(era.desc)}</p><h3>Suggested topics to read</h3><ul><li>Major political developments</li><li>Society & economy</li><li>Art & culture</li><li>Primary sources & inscriptions</li></ul></section></body></html>`;const url = 'data:text/html;charset=utf-8,'+encodeURIComponent(html);
+  window.open(url,'_blank');
+}
+function escapeHtml(s){return (s+'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
+
+/*******************************
+ * Timeline search (improved)
+ *******************************/
+function doTimelineSearch(){
+  const q = document.getElementById('timeline-search').value.trim().toLowerCase();
+  if(!q){alert('Type something to search the timeline.');return}
+  const items = Array.from(document.querySelectorAll('.timeline-item'));
+  let found=false; let first=null; let count=0;
+  items.forEach(it=>{
+    const text = it.textContent.toLowerCase();
+    if(text.includes(q)){
+      it.style.borderColor='rgba(192,57,43,0.12)'; it.style.boxShadow='0 6px 18px rgba(192,57,43,0.06)';
+      count++; if(!first){first=it}
+    } else { it.style.borderColor='rgba(0,0,0,0.03)'; it.style.boxShadow='none'; }
+  });
+  if(first){ first.scrollIntoView({behavior:'smooth',block:'center'}); found=true }
+  alert(found? (count + ' matches found in timeline') : 'No matches in timeline');
+}
+
+/*******************************
+ * Quiz engine
+ *******************************/
+const quizArea = document.getElementById('quiz-area');
+document.getElementById('start-quiz').addEventListener('click',startQuiz);
+
+function startQuiz(){
+  const n = parseInt(document.getElementById('quiz-count').value,10)||10;
+  const pool = shuffle(questionBank).slice(0, Math.min(questionBank.length, 1000));
+  const questions = pool.slice(0,n).map(q=>({...q}));
+  renderQuiz(questions);
+}
+
+function renderQuiz(questions){
+  quizArea.innerHTML='';
+  let current=0; let correct=0;
+  const total = questions.length;
+
+  const container = document.createElement('div'); container.className='q-card';
+
+  const header = document.createElement('div'); header.style.display='flex'; header.style.justifyContent='space-between';
+  const title = document.createElement('div'); title.innerHTML = `<strong>Question <span id=qn>1</span> / ${total}</strong>`;
+  const score = document.createElement('div'); score.className='muted'; score.id='live-score'; score.textContent = `Score: 0`;
+  header.appendChild(title); header.appendChild(score);
+  container.appendChild(header);
+
+  const qtext = document.createElement('div'); qtext.style.marginTop='12px'; qtext.id='qtext'; container.appendChild(qtext);
+  const opts = document.createElement('div'); opts.className='options'; opts.id='opts'; container.appendChild(opts);
+
+  const nav = document.createElement('div'); nav.style.display='flex'; nav.style.gap='8px'; nav.style.marginTop='12px';
+  const btnNext = document.createElement('button'); btnNext.className='btn'; btnNext.textContent='Next'; btnNext.disabled=true;
+  const btnPrev = document.createElement('button'); btnPrev.className='btn'; btnPrev.textContent='Prev'; btnPrev.style.background='#64748b';
+  const showAnswer = document.createElement('button'); showAnswer.className='btn'; showAnswer.textContent='Show Answer'; showAnswer.style.background='#06b6d4';
+  nav.appendChild(btnPrev); nav.appendChild(showAnswer); nav.appendChild(btnNext);
+  container.appendChild(nav);
+
+  const resultBox = document.createElement('div'); resultBox.style.marginTop='12px'; container.appendChild(resultBox);
+
+  quizArea.appendChild(container);
+
+  const state = {questions,answers:Array(questions.length).fill(null)};
+  function load(i){
+    const item = state.questions[i];
+    document.getElementById('qn').textContent = (i+1);
+    qtext.innerHTML = '<div style="font-weight:700">'+escapeHtml(item.q)+'</div>';
+    opts.innerHTML = '';
+    item.opts.forEach(opt=>{
+      const o = document.createElement('div'); o.className='opt';
+      o.tabIndex=0;
+      o.innerHTML = `<div>${escapeHtml(opt)}</div>`;
+      o.addEventListener('click',()=>selectOpt(opt,o,i));
+      o.addEventListener('keydown',e=>{ if(e.key==='Enter') selectOpt(opt,o,i) });
+      opts.appendChild(o);
+    });
+    btnNext.disabled = (i===state.questions.length-1);
+    btnPrev.disabled = (i===0);
+    resultBox.innerHTML = '';
+  }
+
+  function selectOpt(opt,el,index){
+    // disable other opts
+    Array.from
