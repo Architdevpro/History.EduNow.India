@@ -1,0 +1,206 @@
+/* ========= Base Reset ========= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ========= Navbar ========= */
+header {
+  background: #0b3d91; /* Navy Blue (Govt style) */
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  color: #ff9933; /* Saffron */
+}
+
+/* ========= Hero ========= */
+.hero {
+  background: linear-gradient(rgba(11, 61, 145, 0.8), rgba(11, 61, 145, 0.8)),
+    url("../assets/images/india-flag.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: auto;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+#searchBar {
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 25px;
+  width: 80%;
+  max-width: 400px;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ========= Timeline ========= */
+.timeline {
+  padding: 3rem 2rem;
+  background: #fff;
+}
+
+.timeline h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #0b3d91;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.timeline-card {
+  background: #f1f1f1;
+  padding: 1.5rem;
+  border-left: 5px solid #138808; /* Green */
+  border-radius: 8px;
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.timeline-card h3 {
+  margin-bottom: 0.5rem;
+  color: #0b3d91;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ========= Quiz ========= */
+.quiz {
+  padding: 3rem 2rem;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.quiz h2 {
+  margin-bottom: 1rem;
+  color: #0b3d91;
+}
+
+#startQuiz {
+  padding: 0.7rem 1.5rem;
+  background: #ff9933; /* Saffron */
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#startQuiz:hover {
+  background: #cc7a29;
+}
+
+#quizContainer {
+  margin-top: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* ========= About ========= */
+.about {
+  padding: 3rem 2rem;
+  background: #fff;
+}
+
+.about h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #0b3d91;
+}
+
+.about p {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ========= Footer ========= */
+footer {
+  background: #0b3d91;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ========= Mobile Responsive ========= */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+}
