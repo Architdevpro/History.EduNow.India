@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which sacred texts are associated with the Vedic period?",
+    "options": ["Upanishads", "Vedas", "Puranas", "Tripitakas"],
+    "answer": "Vedas"
+  },
+  {
+    "question": "Who was the founder of the Maurya Empire?",
+    "options": ["Ashoka", "Chandragupta Maurya", "Bindusara", "Bimbisara"],
+    "answer": "Chandragupta Maurya"
+  },
+  {
+    "question": "Which Mughal ruler built the Taj Mahal?",
+    "options": ["Akbar", "Aurangzeb", "Shah Jahan", "Humayun"],
+    "answer": "Shah Jahan"
+  },
+  {
+    "question": "When did the Revolt of 1857 begin?",
+    "options": ["1848", "1857", "1862", "1871"],
+    "answer": "1857"
+  },
+  {
+    "question": "Who gave the call 'Do or Die' during the Quit India Movement?",
+    "options": ["Mahatma Gandhi", "Jawaharlal Nehru", "Subhas Chandra Bose", "Sardar Patel"],
+    "answer": "Mahatma Gandhi"
+  },
+  {
+    "question": "Which dynasty is credited with the concept of Zero in mathematics?",
+    "options": ["Gupta", "Maurya", "Mughal", "Chola"],
+    "answer": "Gupta"
+  },
+  {
+    "question": "Who was the last Governor-General of independent India?",
+    "options": ["Lord Mountbatten", "C. Rajagopalachari", "Rajendra Prasad", "Jawaharlal Nehru"],
+    "answer": "C. Rajagopalachari"
+  },
+  {
+    "question": "Which Indian leader is known as the 'Iron Man of India'?",
+    "options": ["Jawaharlal Nehru", "Subhas Chandra Bose", "Sardar Vallabhbhai Patel", "Lala Lajpat Rai"],
+    "answer": "Sardar Vallabhbhai Patel"
+  },
+  {
+    "question": "The Rigveda consists of how many hymns?",
+    "options": ["1028", "1000", "500", "1200"],
+    "answer": "1028"
+  },
+  {
+    "question": "Which Indian leader established the Forward Bloc?",
+    "options": ["Mahatma Gandhi", "Subhas Chandra Bose", "Bal Gangadhar Tilak", "Bhagat Singh"],
+    "answer": "Subhas Chandra Bose"
+  }
+]
