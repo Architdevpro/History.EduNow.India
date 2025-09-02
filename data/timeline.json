@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Vedic Period",
+    "period": "1500 BCE – 600 BCE",
+    "description": "The Vedic Age laid the foundations of Indian culture, philosophy, and society through the Rigveda, Yajurveda, Samaveda, and Atharvaveda.",
+    "page": "vedic.html"
+  },
+  {
+    "title": "Maurya Empire",
+    "period": "321 BCE – 185 BCE",
+    "description": "Founded by Chandragupta Maurya, this era saw the unification of most of India and Ashoka’s spread of Buddhism.",
+    "page": "maurya.html"
+  },
+  {
+    "title": "Gupta Empire",
+    "period": "320 CE – 550 CE",
+    "description": "Often called the Golden Age of India, marked by achievements in science, mathematics, astronomy, and art.",
+    "page": "gupta.html"
+  },
+  {
+    "title": "Mughal Empire",
+    "period": "1526 CE – 1857 CE",
+    "description": "A powerful dynasty that left its mark with monumental architecture, art, and administrative reforms.",
+    "page": "mughal.html"
+  },
+  {
+    "title": "British Raj",
+    "period": "1858 CE – 1947 CE",
+    "description": "A century of colonial rule that reshaped India’s economy, politics, and culture while sowing seeds of resistance.",
+    "page": "british.html"
+  },
+  {
+    "title": "Independence Movement",
+    "period": "1857 CE – 1947 CE",
+    "description": "A national struggle led by leaders like Gandhi, Nehru, and Bose that culminated in India’s freedom.",
+    "page": "independence.html"
+  }
+]
