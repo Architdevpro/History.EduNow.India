@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indian History Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">🇮🇳 Indian History</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Indian History Portal</h1>
+    <p>Explore the vast and rich history of India – from the Vedic period to Independence and beyond.</p>
+    <input type="text" id="searchBar" placeholder="🔍 Search Indian History..." />
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="timeline">
+    <h2>Major Periods in Indian History</h2>
+    <div class="timeline-grid">
+      <div class="timeline-card" data-link="pages/vedic.html">
+        <h3>🕉️ Vedic Period</h3>
+        <p>1500 BCE – 600 BCE</p>
+      </div>
+      <div class="timeline-card" data-link="pages/mauryan.html">
+        <h3>🏛️ Mauryan Empire</h3>
+        <p>321 BCE – 185 BCE</p>
+      </div>
+      <div class="timeline-card" data-link="pages/mughal.html">
+        <h3>⚔️ Mughal Era</h3>
+        <p>1526 – 1857</p>
+      </div>
+      <div class="timeline-card" data-link="pages/british.html">
+        <h3>🇬🇧 British Rule</h3>
+        <p>1858 – 1947</p>
+      </div>
+      <div class="timeline-card" data-link="pages/independence.html">
+        <h3>🇮🇳 Independence</h3>
+        <p>1947 onwards</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section id="quiz" class="quiz">
+    <h2>Test Your Knowledge</h2>
+    <button id="startQuiz">Start Quiz</button>
+    <div id="quizContainer"></div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About This Project</h2>
+    <p>
+      This portal is designed to make learning Indian history engaging and interactive.
+      Explore different timelines, test yourself with quizzes, and dive deeper into India’s past.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Indian History Portal. Built with ❤️ for learners.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
