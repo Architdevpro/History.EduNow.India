@@ -363,4 +363,39 @@ function renderQuiz(questions){
 
   function selectOpt(opt,el,index){
     // disable other opts
-    Array.from
+    Array.from(opts.children).forEach(ch=>ch.classList.add('disabled'));
+        const correctAnswer = state.questions[index].a;
+        if(opt === correctAnswer){ el.classList.add('correct'); resultBox.innerHTML = '<div class="feedback" style="color:rgb(16,185,129)">Correct ✅</div>'; if(state.answers[index]!==true){ correct++; state.answers[index]=true } }
+        else { el.classList.add('wrong'); resultBox.innerHTML = `<div class="feedback" style="color:rgb(239,68,68)">Wrong ❌ — correct: <span class="highlight">${escapeHtml(correctAnswer)}</span></div>`; if(state.answers[index]!==true){ state.answers[index]=false } }
+        document.getElementById('live-score').textContent = `Score: ${correct}`;
+        btnNext.disabled=false;
+      }
+
+      btnNext.addEventListener('click',()=>{ if(current < state.questions.length-1){ current++; load(current) } else finish() });
+      btnPrev.addEventListener('click',()=>{ if(current>0){ current--; load(current) } });
+      showAnswer.addEventListener('click',()=>{
+        const ca = state.questions[current].a; resultBox.innerHTML = `<div class="feedback">Answer: <span class="highlight">${escapeHtml(ca)}</span></div>`;
+      });
+
+      function finish(){
+        quizArea.innerHTML = `<div class="card"><h3>Quiz finished</h3><p class="muted">You scored <strong>${correct}</strong> out of <strong>${total}</strong>.</p><p><button class='btn' id='retry'>Retry</button> <button class='btn' id='new'>New Quiz</button></p></div>`;
+        document.getElementById('retry').addEventListener('click',()=>renderQuiz(questions));
+        document.getElementById('new').addEventListener('click',startQuiz);
+      }
+
+      // initial
+      load(0);
+    }
+
+    // Utility
+    function escapeHtml(s){return (s+'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+    // initial bank display
+    document.getElementById('bank-size').textContent = questionBank.length;
+
+    // ensure at least one question in bank
+    if(questionBank.length===0){questionBank.push({q:'Which city belongs to the Indus Valley Civilization?',opts:['Pataliputra','Mohenjo-daro','Delhi'],a:'Mohenjo-daro'});document.getElementById('bank-size').textContent=1}
+
+  </script>
+</body>
+</html>
